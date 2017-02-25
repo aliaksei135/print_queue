@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}New Job{% endblock %}
+
+{% block navbar-left %}
+    {% include "_navbar.html" %}
+{% endblock %}
+
+{% block container %}
+
+    <div id="sec1" class="text-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>{% include "_brandname.html" %}</h1>
+                    <p class="lead"><strong>New Print Job</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="form-row">
+                <br><br>
+                {% crispy user_form %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
