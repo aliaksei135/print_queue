@@ -4,11 +4,16 @@
 {% load crispy_forms_tags %}
 {% load thumbnail %}
 
-{% block title %}{{ block.super }}New Job{% endblock %}
+{% block title %}{{ block.super }}Jobs{% endblock %}
 
 {% block navbar-left %}
     {% include "_navbar.html" %}
 {% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs/jqc-1.12.4/dt-1.10.13/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.css"/>
+{% endblock extrahead %}
 
 {% block container %}
 
@@ -17,7 +22,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h1>{% include "_brandname.html" %}</h1>
-                    <p class="lead"><strong>New Print Job</strong></p>
+                    <p class="lead"><strong>Print Jobs</strong></p>
                 </div>
             </div>
         </div>
@@ -29,20 +34,62 @@
             <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> New Job</button>
         </a></div>
         <br>
-        {% for job in jobs %}
-            <div class="row" onclick="{% url 'app:job' print_id=job.print_id %}">
-                <div class="col-lg-4"><strong>{{ job.print_name }}</strong></div>
-                <div class="col-lg-4">{{ job.datetime_submitted }}</div>
-                <div class="col-lg-4"><strong>{{ job.job_status }}</strong></div>
-            </div>
-        {% empty %}
-            <br>
+        {% if not jobs %}
             <div class="row">
                 <div class="text-center text-danger text-capitalize">
                     <h3>No Print Jobs submitted</h3>
                 </div>
             </div>
-        {% endfor %}
+        {% else %}
+            <div class="table table-responsive">
+                <table class="table" id="job_table">
+                    <thead>
+                    <tr>
+                        <th>Submitted on</th>
+                        <th>Print Name</th>
+                        {% if user.is_staff %}
+                            <th>Requested By</th>
+                            <th>Waiting for</th>
+                        {% endif %}
+                        <th>Job Status</th>
+                        <th>Link</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for job in jobs %}
+                        <tr>
+                            <td>{{ job.datetime_submitted }}</td>
+                            <td>{{ job.print_name }}</td>
+                            {% if user.is_staff %}
+                                <td>{{ job.requester }}</td>
+                                {% if job.datetime_actioned == None %}
+                                    <td>{{ job.datetime_submitted|timesince }}</td>
+                                {% else %}
+                                    <td>{{ job.datetime_actioned|timesince }}</td>
+                                {% endif %}
+                            {% endif %}
+                            <td>{{ job.job_status }}</td>
+                            <td><a href="{% url 'app:job' print_id=job.print_id %}">View</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}
+{% block scripts %}
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/bs/jqc-1.12.4/dt-1.10.13/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.css"/>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/bs/jqc-1.12.4/dt-1.10.13/fh-3.1.2/r-2.1.1/sc-1.4.2/datatables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#job_table').DataTable({
+                select: true,
+                autowidth: true
+            });
+        });
+    </script>
+{% endblock scripts %}

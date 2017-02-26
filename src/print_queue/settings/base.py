@@ -79,6 +79,7 @@ INSTALLED_APPS = (
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
+    'timedeltatemplatefilter',
 
     'profiles',
     'accounts',

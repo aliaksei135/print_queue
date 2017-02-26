@@ -22,6 +22,6 @@ class PrintJob(models.Model):
         return format(self.print_name)
 
     class Meta:
-        ordering = ['-datetime_submitted', '-datetime_actioned']
+        ordering = ['datetime_actioned', 'datetime_submitted']
         verbose_name = 'Print Job'
         verbose_name_plural = 'Print Jobs'
