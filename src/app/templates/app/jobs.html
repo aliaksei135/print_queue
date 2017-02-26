@@ -24,9 +24,15 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            {% crispy job_form %}
-        </div>
+        {% for job in jobs %}
+            <div class="row" onclick="{% url 'app:job' print_id=job.print_id %}">
+                <div class="col-lg-4"><strong>{{ job.print_name }}</strong></div>
+                <div class="col-lg-4">{{ job.datetime_submitted }}</div>
+                <div class="col-lg-4"><strong>{{ job.job_status }}</strong></div>
+            </div>
+        {% empty %}
+            <strong>No Print Jobs submitted</strong>
+        {% endfor %}
     </div>
 
 {% endblock %}
