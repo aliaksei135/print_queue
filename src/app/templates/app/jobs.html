@@ -24,6 +24,11 @@
     </div>
 
     <div class="container">
+        <br>
+        <div class="center-block"><a href="{% url 'app:new_job' %}">
+            <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> New Job</button>
+        </a></div>
+        <br>
         {% for job in jobs %}
             <div class="row" onclick="{% url 'app:job' print_id=job.print_id %}">
                 <div class="col-lg-4"><strong>{{ job.print_name }}</strong></div>
@@ -31,7 +36,12 @@
                 <div class="col-lg-4"><strong>{{ job.job_status }}</strong></div>
             </div>
         {% empty %}
-            <strong>No Print Jobs submitted</strong>
+            <br>
+            <div class="row">
+                <div class="text-center text-danger text-capitalize">
+                    <h3>No Print Jobs submitted</h3>
+                </div>
+            </div>
         {% endfor %}
     </div>
 

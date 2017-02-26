@@ -16,15 +16,15 @@ class NewJobPage(LoginRequiredMixin, generic.TemplateView):
     def get(self, request, *args, **kwargs):
         user = self.request.user
         if "job_form" not in kwargs:
-            kwargs["job_form"] = forms.JobForm(instance=user)
+            kwargs["job_form"] = forms.JobForm()
         return super(NewJobPage, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         user = self.request.user
-        job_form = forms.JobForm(request.POST, request.FILES, instance=user)
+        job_form = forms.JobForm(request.POST, request.FILES, )
         if not job_form.is_valid():
             messages.error(request, "There was a problem with the form. Check your inputs.")
-            job_form = forms.JobForm(instance=user)
+            job_form = forms.JobForm()
             return super(NewJobPage, self).get(request, job_form=job_form)
         else:
             job = job_form.save(commit=False)

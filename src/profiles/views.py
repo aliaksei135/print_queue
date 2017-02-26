@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
-from django.views import generic
-from django.shortcuts import get_object_or_404, redirect
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
+from django.views import generic
+
 from . import forms
 from . import models
 
@@ -47,7 +49,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
             messages.error(request, "There was a problem with the form. "
                            "Please check the details.")
             user_form = forms.UserForm(instance=user)
-            profile_form = forms.ProfileForm(instance=user.profile)
+            profile_form = forms.ProfileForm(instance=user.profile_user)
             return super(EditProfile, self).get(request,
                                                 user_form=user_form,
                                                 profile_form=profile_form)

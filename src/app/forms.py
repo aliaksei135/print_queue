@@ -1,5 +1,6 @@
+from crispy_forms.bootstrap import FormActions
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Submit, Reset
+from crispy_forms.layout import Layout, Field, Submit, Button
 from django import forms
 
 from app.models import PrintJob
@@ -16,8 +17,10 @@ class JobForm(forms.ModelForm):
                               'Don\'t include your name, that\'s automatically added!'),
             Field('file', accept=".sldprt,.sldasm,.stl"),
             Field('notes', placeholder='Any additional information goes here'),
-            Submit('submit', "Submit", css_class="btn-success"),
-            Reset('cancel', "Cancel", css_class="btn")
+            FormActions(
+                Submit('submit', "Submit", css_class="btn-success"),
+                Button('cancel', "Cancel", css_class="btn")
+            )
         )
 
     class Meta:
