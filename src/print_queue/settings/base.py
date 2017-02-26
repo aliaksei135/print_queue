@@ -79,7 +79,8 @@ INSTALLED_APPS = (
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
-    'timedeltatemplatefilter',
+    'notifications',
+    'postman',
 
     'profiles',
     'accounts',
@@ -113,7 +114,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
 TIME_ZONE = 'UTC'
 
@@ -127,8 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
-
-ALLOWED_HOSTS = []
 
 # Crispy Form Theme - Bootstrap 3
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -146,3 +145,15 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'  # Or any extn for your thumbnails
+
+POSTMAN_I18N_URLS = True  # default is False
+POSTMAN_DISALLOW_ANONYMOUS = True  # default is False
+POSTMAN_DISALLOW_MULTIRECIPIENTS = False  # default is False
+POSTMAN_DISALLOW_COPIES_ON_REPLY = False  # default is False
+POSTMAN_DISABLE_USER_EMAILING = False  # default is False
+POSTMAN_AUTO_MODERATE_AS = True  # default is None
+POSTMAN_SHOW_USER_AS = 'get_full_name'  # default is None
+POSTMAN_NAME_USER_AS = 'last_name'  # default is None
+POSTMAN_QUICKREPLY_QUOTE_BODY = True  # default is False
+POSTMAN_NOTIFIER_APP = 'notifications'  # default is 'notification'
+POSTMAN_MAILER_APP = None  # default is 'mailer'

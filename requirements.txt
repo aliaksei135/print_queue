@@ -1,2 +1,4 @@
+postman
+notifications
 environ
 -r requirements/development.txt
