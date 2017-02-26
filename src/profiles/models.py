@@ -9,7 +9,7 @@ from django.utils.encoding import python_2_unicode_compatible
 
 class BaseProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
-                                primary_key=True, related_name='profile_user')
+                                primary_key=True)
     slug = models.UUIDField(default=uuid.uuid4, blank=True, editable=False)
     # Add more user profile fields here. Make sure they are nullable
     # or with default values
