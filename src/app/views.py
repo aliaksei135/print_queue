@@ -29,6 +29,7 @@ class NewJobPage(LoginRequiredMixin, generic.TemplateView):
         else:
             job = job_form.save(commit=False)
             job.requester = user.profile
+            job.job_status = 'Submitted'
             job.save()
             messages.success(request, 'Your job has been added!')
             return redirect('app:jobs')

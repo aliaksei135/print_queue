@@ -25,7 +25,28 @@
 
     <div class="container">
         <div class="row">
-
+            <br>
+            <div class="center-block"><a href="{% url 'app:edit_job' print_id=job.print_id %}">
+                <button class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit Job</button>
+            </a>
+            </div>
+            <br>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <ul class="list-group">
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>Job Name:</strong></span> {{ job.print_name }}</li>
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>Submitted:</strong></span> {{ job.datetime_submitted }}</li>
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>Actioned:</strong></span> {{ job.datetime_actioned }}</li>
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>Job Status:</strong></span> {{ job.job_status }}</li>
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>Notes:</strong></span> {{ job.notes }}</li>
+                </ul>
+            </div>
+            <div class="col-lg-2"></div>
         </div>
     </div>
 
