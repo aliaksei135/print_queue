@@ -74,12 +74,24 @@ class ManageJobPage(LoginRequiredMixin, generic.TemplateView):
         if not user.is_staff:
             return HttpResponseForbidden("You don\'t have access to this!")
         else:
-            None
-            # TODO Render page
+            return super(ManageJobPage, self).get(request, job=job)
 
     def post(self, request, *args, **kwargs):
         user = self.request.user
-        # TODO Handle POST data
+        print_id = self.kwargs.get('print_id')
+        job = get_object_or_404(models.PrintJob, print_id=print_id)
+        manage_form = forms.ManageForm(request.POST, instance=job)
+        if not user.is_staff:
+            return HttpResponseForbidden("You don\'t have access to this!")
+        else:
+            if manage_form.is_valid():
+                manage_form.save()
+                messages.success(request, "Job details updated!")
+                return redirect('app:jobs')
+            else:
+                messages.error(request, "That didn\'t work. Check your inputs and try again.")
+                manage_form = forms.ManageForm(request.POST, instance=job)
+                return super(ManageJobPage, self).get(request, manage_form=manage_form)
 
 
 class EditJobPage(LoginRequiredMixin, generic.TemplateView):
