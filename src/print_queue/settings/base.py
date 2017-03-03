@@ -79,7 +79,7 @@ INSTALLED_APPS = (
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
-    'notifications',
+    # 'notifications',
     'postman',
 
     'profiles',

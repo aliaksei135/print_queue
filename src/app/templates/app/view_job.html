@@ -44,6 +44,9 @@
                             class="pull-left"><strong>Job Status:</strong></span> {{ job.job_status }}</li>
                     <li class="list-group-item text-right"><span
                             class="pull-left"><strong>Notes:</strong></span> {{ job.notes }}</li>
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>File:</strong></span> <a href="{{ job.file.url }}">Download</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-2"></div>

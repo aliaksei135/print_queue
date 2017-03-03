@@ -71,10 +71,12 @@ class ManageJobPage(LoginRequiredMixin, generic.TemplateView):
         user = self.request.user
         print_id = self.kwargs.get('print_id')
         job = get_object_or_404(models.PrintJob, print_id=print_id)
+        if "manage_form" not in kwargs:
+            kwargs['manage_form'] = forms.ManageForm(instance=job)
         if not user.is_staff:
             return HttpResponseForbidden("You don\'t have access to this!")
         else:
-            return super(ManageJobPage, self).get(request, job=job)
+            return super(ManageJobPage, self).get(request, *args, **kwargs, job=job)
 
     def post(self, request, *args, **kwargs):
         user = self.request.user
@@ -91,7 +93,7 @@ class ManageJobPage(LoginRequiredMixin, generic.TemplateView):
             else:
                 messages.error(request, "That didn\'t work. Check your inputs and try again.")
                 manage_form = forms.ManageForm(request.POST, instance=job)
-                return super(ManageJobPage, self).get(request, manage_form=manage_form)
+                return super(ManageJobPage, self).get(request, manage_form=manage_form, job=job)
 
 
 class EditJobPage(LoginRequiredMixin, generic.TemplateView):

@@ -16,7 +16,7 @@ class PrintJob(models.Model):
     datetime_submitted = models.DateTimeField(editable=False, auto_now_add=True, verbose_name='Job submitted')
     datetime_actioned = models.DateTimeField(editable=False, blank=True, null=True, verbose_name="Job last actioned")
 
-    job_status = models.CharField(max_length=40, editable=False, blank=True, verbose_name="Job Status")
+    job_status = models.CharField(max_length=40, blank=True, verbose_name="Job Status")
 
     def __str__(self):
         return format(self.print_name)
