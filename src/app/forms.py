@@ -15,11 +15,11 @@ class JobForm(forms.ModelForm):
             Field('print_name', autocomplete='off',
                   placeholder='Something to remember this job by. '
                               'Don\'t include your name, that\'s automatically added!'),
-            Field('file', accept=".sldprt,.sldasm,.stl"),
+            Field('file', accept=".sldprt,.sldasm,.stl", ),
             Field('notes', placeholder='Any additional information goes here'),
             FormActions(
                 Submit('submit', "Submit", css_class="btn btn-success"),
-                Button('cancel', "Cancel", css_class="btn")
+                Button('cancel', "Cancel", css_class="btn", onclick="window.history.back()")
             )
         )
 
@@ -38,7 +38,7 @@ class ManageForm(forms.ModelForm):
             Field('job_status', choices=JOB_STATUS_CHOICES),
             FormActions(
                 Submit('submit', "Submit", css_class="btn btn-success"),
-                Button('cancel', "Cancel", css_class="btn")
+                Button('cancel', "Cancel", css_class="btn", onclick="window.history.back()")
             )
         )
 

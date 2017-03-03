@@ -73,7 +73,11 @@
                                 {% endif %}
                             {% endif %}
                             <td>{{ job.job_status }}</td>
+                            {% if user.is_staff %}
+                                <td><a href="{% url 'app:manage_job' print_id=job.print_id %}">Manage</a></td>
+                            {% else %}
                             <td><a href="{% url 'app:view_job' print_id=job.print_id %}">View</a></td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                     </tbody>
