@@ -23,6 +23,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             join(BASE_DIR, 'templates'),
+            join(BASE_DIR, 'app', 'templates'),
+            join(BASE_DIR, 'postman', 'templates'),
             # insert more TEMPLATE_DIRS here
         ],
         'APP_DIRS': True,
@@ -37,6 +39,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'postman.context_processors.inbox',
             ],
         },
     },
@@ -75,17 +78,19 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
-    # 'notifications',
-    'postman',
 
     'profiles',
     'accounts',
     'app',
 
+    'notification',
+    'pagination',
+    'postman',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -113,6 +118,8 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
+
+SITE_ID = 0
 
 LANGUAGE_CODE = 'en-gb'
 
@@ -145,6 +152,7 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'  # Or any extn for your thumbnails
+THUMBNAIL_DEBUG = True
 
 POSTMAN_I18N_URLS = True  # default is False
 POSTMAN_DISALLOW_ANONYMOUS = True  # default is False
@@ -155,5 +163,5 @@ POSTMAN_AUTO_MODERATE_AS = True  # default is None
 POSTMAN_SHOW_USER_AS = 'get_full_name'  # default is None
 POSTMAN_NAME_USER_AS = 'last_name'  # default is None
 POSTMAN_QUICKREPLY_QUOTE_BODY = True  # default is False
-POSTMAN_NOTIFIER_APP = 'notifications'  # default is 'notification'
-POSTMAN_MAILER_APP = None  # default is 'mailer'
+POSTMAN_NOTIFIER_APP = 'notification'  # default is 'notification'
+POSTMAN_MAILER_APP = 'mailer'  # default is 'mailer'

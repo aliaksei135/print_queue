@@ -1,4 +1,3 @@
-import notifications.urls
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
@@ -14,7 +13,6 @@ urlpatterns = [
     url(r'^about/$', views.AboutPage.as_view(), name='about'),
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
-    url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
     url(r'^messages/', include('postman.urls', namespace='postman', app_name='postman')),
     url(r'^', include(app.urls, namespace='app')),
     url(r'^', include(accounts.urls, namespace='accounts')),
