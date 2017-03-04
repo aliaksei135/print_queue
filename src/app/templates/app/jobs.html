@@ -65,7 +65,7 @@
                             <td>{{ job.datetime_submitted }}</td>
                             <td>{{ job.print_name }}</td>
                             {% if user.is_staff %}
-                                <td>{{ job.requester }}</td>
+                                <td>{{ job.requester.user.name }}</td>
                                 {% if job.datetime_actioned == None %}
                                     <td>{{ job.datetime_submitted|timesince }}</td>
                                 {% else %}

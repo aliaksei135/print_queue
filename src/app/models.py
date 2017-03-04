@@ -8,7 +8,7 @@ from profiles.models import Profile
 
 def make_save_file_path(instance, filename):
     base_path = 'cad_files/'
-    format_path = instance.requester.user.__str__() + '_' + filename
+    format_path = instance.requester.user.name.__str__() + '_' + filename
     joined_path = os.path.join(base_path, format_path)
     return 'user_{0}/{1}'.format(instance.requester.slug, joined_path)
 
