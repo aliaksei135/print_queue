@@ -7,25 +7,15 @@
     <div id="postman">
         <h1>{% block pm_folder_title %}{% endblock %}</h1>
         {% autopaginate pm_messages %}
-        {% if invalid_page %}
-            <p>{% trans "Sorry, this page number is invalid." %}</p>
-        {% else %}
-            {% if pm_messages %}
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    {% block pm_by_modes %}
-                        <div id="pm_by_modes">
-                            <span class="pm_by_mode">{% if by_message %}
-                                <a href="{{ by_conversation_url }}">{% endif %}{% trans "by conversation" %}
-                                {% if by_message %}</a>{% endif %}</span>
-                            <span class="pm_by_mode">{% if by_conversation %}
-                                <a href="{{ by_message_url }}">{% endif %}{% trans "by message" %}
-                                {% if by_conversation %}</a>{% endif %}</span>
-                        </div>
-                        <br>
-                    {% endblock pm_by_modes %}
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {% if invalid_page %}
+                <p>{% trans "Sorry, this page number is invalid." %}</p>
+            {% else %}
+                {% if pm_messages %}
                     <form action="{% block pm_form_action %}{% endblock %}" method="post">{% csrf_token %}
-                        {% block pm_form_buttons %}<span id="pm_buttons">
+                        {% block pm_form_buttons %}
+                            <span id="pm_buttons">
 {% block pm_delete_button %}
     <button type="submit" class="btn btn-danger"
             onclick="this.form.action='{% url 'postman:delete' %}'">{% trans "Delete" %}</button>  {% endblock %}
@@ -85,6 +75,8 @@
                                             <em>{% endif %}
                                             {% block pm_subject %}
                                                 <a href="
+
+
                                                         {% if by_conversation and message.thread_id %}{% url 'postman:view_conversation' message.thread_id %}{% else %}{% url 'postman:view' message.pk %}{% endif %}?next={{ current_url|urlencode }}">
                                                     {% include "postman/inc_subject_ex.html" %}
                                                 </a>
@@ -99,14 +91,13 @@
                             </table>
                         </div>
                     </form>
-                </div>
-                <div class="col-md-2"></div>
-                {% paginate %}
-            {% else %}
-                <p>{% trans "No messages." %}</p>
+                    {% paginate %}
+                {% else %}
+                    <p><strong>{% trans "No messages." %}</strong></p>
+                {% endif %}
             {% endif %}
-        {% endif %}
-        {% block pm_footer_info %}{% endblock %}
+        </div>
+        <div class="col-md-2"></div>
     </div>
 {% endblock container %}
 {% block scripts %}

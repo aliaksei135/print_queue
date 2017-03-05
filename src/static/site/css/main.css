@@ -65,6 +65,14 @@ body>.navbar-transparent {
     box-shadow: 0px 1px 0px #ddd;
 }
 
+/* CSS used here will be applied after bootstrap.css */
+.badge-notify {
+    background: red;
+    position: relative;
+    top: -9px;
+    left: -9px;
+}
+
 /* Home page styling */
 .corporate-jumbo {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)),
