@@ -3,20 +3,25 @@
 {% block extrahead %}{{ block.super }}
     {% if autocompleter_app.is_active %}{# using the available admin jQuery is enough #}
         {# should not be necessary since AS v1.3 with AJAX_SELECT_BOOTSTRAP set #}
-        {#<script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>#}
+        {#        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>#}
     {% endif %}
     {{ form.media }}{# for ajax_selects (v1.3.6 at least) #}
 {% endblock %}
 {% block container %}
     {{ block.super }}
     <div id="postman">
-        <h1>{% block pm_write_title %}{% endblock %}</h1>
-        <form action="{% if next_url %}?next={{ next_url|urlencode }}{% endif %}" method="post">{% csrf_token %}
-            <table>
-                {% block pm_write_recipient %}{% endblock %}
-                {{ form.as_table }}
-            </table>
-            <button class="btn btn-success" type="submit">{% trans "Send" %}</button>
-        </form>
+        <div class="col-md-3"></div>
+        <div class="col-md-8">
+            <h1>{% block pm_write_title %}{% endblock %}</h1>
+            <form class="form-box" action="{% if next_url %}?next={{ next_url|urlencode }}{% endif %}"
+                  method="post">{% csrf_token %}
+                <table class="table">
+                    {% block pm_write_recipient %}{% endblock %}
+                    {{ form.as_table }}
+                </table>
+                <button class="btn btn-success" type="submit">{% trans "Send" %}</button>
+            </form>
+        </div>
+        <div class="col-md-1"></div>
     </div>
 {% endblock %}

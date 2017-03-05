@@ -12,6 +12,7 @@ from os.path import dirname, join, exists
 from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: join(BASE_DIR, "directory")
+
 BASE_DIR = dirname(dirname(dirname(__file__)))
 STATICFILES_DIRS = [join(BASE_DIR, 'static')]
 MEDIA_ROOT = join(BASE_DIR, 'media')
@@ -90,6 +91,8 @@ INSTALLED_APPS = (
 
     'notification',
     'pagination',
+    'ajax_select',
+    'mailer',
     'postman',
 )
 
@@ -161,7 +164,13 @@ POSTMAN_DISALLOW_COPIES_ON_REPLY = False  # default is False
 POSTMAN_DISABLE_USER_EMAILING = False  # default is False
 POSTMAN_AUTO_MODERATE_AS = True  # default is None
 POSTMAN_SHOW_USER_AS = 'get_full_name'  # default is None
-POSTMAN_NAME_USER_AS = 'last_name'  # default is None
+POSTMAN_NAME_USER_AS = 'name'  # default is None
 POSTMAN_QUICKREPLY_QUOTE_BODY = True  # default is False
 POSTMAN_NOTIFIER_APP = 'notification'  # default is 'notification'
 POSTMAN_MAILER_APP = 'mailer'  # default is 'mailer'
+# AJAX_LOOKUP_CHANNELS = {
+#     'mail_users': {'model': 'profiles.Profile', 'search_field': 'user.name'}
+# }
+# POSTMAN_AUTOCOMPLETER_APP = {
+#     'arg_default': 'mail_users',
+# }

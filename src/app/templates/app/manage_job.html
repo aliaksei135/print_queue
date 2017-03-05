@@ -25,11 +25,19 @@
 
     <div class="container">
         <div class="row">
+            <br>
+            <div class="center-block"><a
+                    href="{% url 'postman:write' recipients=job.requester.user.name|urlencode %}?subject=Re:{{ job.print_name|urlencode }}">
+                <button class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Compose</button>
+            </a>
+            </div>
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <ul class="list-group">
                     <li class="list-group-item text-right"><span
                             class="pull-left"><strong>Job Name:</strong></span> {{ job.print_name }}</li>
+                    <li class="list-group-item text-right"><span
+                            class="pull-left"><strong>Requested by:</strong></span> {{ job.requester.user.name }}</li>
                     <li class="list-group-item text-right"><span
                             class="pull-left"><strong>Submitted:</strong></span> {{ job.datetime_submitted }}</li>
                     <li class="list-group-item text-right"><span
