@@ -14,8 +14,8 @@ from django.core.urlresolvers import reverse_lazy
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 
 BASE_DIR = dirname(dirname(dirname(__file__)))
-STATICFILES_DIRS = [join(BASE_DIR, 'static'),
-                    '/home/admin/web/testbed.aliakseipilko.com/django-apps/print_queue/src/static']
+STATICFILES_DIRS = [join(BASE_DIR, 'static'), ]
+# '/home/admin/web/testbed.aliakseipilko.com/django-apps/print_queue/src/static']
 MEDIA_ROOT = join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 

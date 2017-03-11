@@ -107,15 +107,16 @@ class EditJobPage(LoginRequiredMixin, generic.TemplateView):
         if user.profile.pk is not job.requester.pk:
             return HttpResponseForbidden('You can\'t edit other peoples print jobs!')
         else:
-            kwargs['job_form'] = forms.JobForm(instance=job)
+            kwargs['job_form'] = forms.JobForm(instance=job, )
             return super(EditJobPage, self).get(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         user = self.request.user
-        job_form = forms.JobForm(request.POST, request.FILES, )
+        print_id = self.kwargs.get('print_id')
+        job = get_object_or_404(models.PrintJob, print_id=print_id)
+        job_form = forms.JobForm(request.POST, request.FILES, instance=job)
         if not job_form.is_valid():
-            messages.error(request, "There was a problem with the form. Check your inputs.")
-            job_form = forms.JobForm()
+            messages.error(request, "There was a problem with the form. Make sure you have re-uploaded the file!")
             return super(EditJobPage, self).get(request, job_form=job_form)
         else:
             job_form.save()
