@@ -19,12 +19,27 @@ loaders = [
 TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 TEMPLATES[0].update({"APP_DIRS": False})
 
-ADMINS = [('Aliaksei', 'aliakseipilko1@gmail.com')]
+ADMINS = [('Aliaksei', 'aliaksei@aliakseipilko.com')]
 
-ALLOWED_HOSTS = ['testbed.aliakseipilko.com/3dprintcentral/']
+ALLOWED_HOSTS = ['testbed.aliakseipilko.com']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django-printcentral',
+        'USER': 'printcentral',
+        'PASSWORD': 'ATSUSwsQWQ4TQFmF',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+} 
 
 # Define STATIC_ROOT for the collectstatic command
-STATIC_ROOT = "/home/admin/web/testbed.aliakseipilko.com/print_queue/static/"
+STATIC_ROOT = '/home/admin/web/testbed.aliakseipilko.com/django-apps/print_queue/static/'
+STATIC_URL = "/3dprintcentral/static/"
+
+MEDIA_ROOT = 'home/admin/web/testbed.aliakseipilko.com/django-apps/print_queue/media/'
+MEDIA_URL = "/3dprintcentral/media/"
 
 # Log everything to the logs directory at the top
 LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
@@ -72,7 +87,13 @@ MIDDLEWARE_CLASSES += (
 )
 
 SESSION_COOKIE_SECURE = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True
 CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
+
 
 EMAIL_BACKEND = "mailer.backend.DbBackend"
 

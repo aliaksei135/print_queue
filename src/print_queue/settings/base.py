@@ -14,7 +14,8 @@ from django.core.urlresolvers import reverse_lazy
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 
 BASE_DIR = dirname(dirname(dirname(__file__)))
-STATICFILES_DIRS = [join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [join(BASE_DIR, 'static'),
+                    '/home/admin/web/testbed.aliakseipilko.com/django-apps/print_queue/src/static']
 MEDIA_ROOT = join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 
@@ -64,7 +65,7 @@ if exists(env_file):
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 # Allowed emails domains the user can register with
 ALLOWED_EMAIL_DOMAINS = ["leightonpark.com", ]
