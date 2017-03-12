@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }}Printer FAQ{% endblock %}
+
+{% block navbar-left %}
+    {% include "_navbar.html" with active_link="faq" %}
+{% endblock %}
+
+{% block container %}
+
+    <div id="sec1" class="text-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>{% include "_brandname.html" %}</h1>
+                    <p class="lead"><strong>Printer FAQ</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="faqTabs" class="container">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#tab1" data-toggle="tab">UPBox 2 Plus</a>
+            </li>
+            <li><a href="#tab2" data-toggle="tab">Ultimaker 2+</a>
+            </li>
+        </ul>
+
+        <div class="tab-content ">
+            <div class="tab-pane active" id="tab1">
+                <div class="panel-group" id="accordion1">
+
+                    <div class="faqHeader">Section Header</div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseOne">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseTwo">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseThree">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faqHeader">Section Header</div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseFour">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseFive">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseSix">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faqHeader">Section Header</div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseSeven">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseSeven" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseEight">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseEight" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1"
+                                   href="#collapseNine">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseNine" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab-pane" id="tab2">
+                <div class="panel-group" id="accordion2">
+
+                    <div class="faqHeader">Section Header</div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseTen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTen" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseEleven">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseEleven" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseTwelve">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwelve" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faqHeader">Section Header</div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseThirteen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThirteen" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseFourteen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFourteen" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseFifteen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFifteen" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faqHeader">Section Header</div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseSixteen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseSixteen" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseSeventeen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseSeventeen" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"
+                                   href="#collapseEighteen">Question</a>
+                            </h4>
+                        </div>
+                        <div id="collapseEighteen" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {% lorem %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock container %}

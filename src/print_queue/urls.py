@@ -9,8 +9,8 @@ import profiles.urls
 from . import views
 
 urlpatterns = [
+    url(r'^faq/', views.FAQPage.as_view(), name='faq'),
     url(r'^$', views.HomePage.as_view(), name='home'),
-    url(r'^about/$', views.AboutPage.as_view(), name='about'),
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^messages/', include('postman.urls', namespace='postman', app_name='postman')),
