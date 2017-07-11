@@ -4,9 +4,6 @@
 
 3D Print Central is a small web app to help queue and manage print jobs for 3D printers. It is designed for use by Leighton Park School students and therefore new user registrations are limited to the '@leightonpark.com' domain, however this is easily changed by the `ALLOWED_EMAIL_DOMAINS` setting.
 
-**This version is live [here][2]**.   Sign up with `anything@leightonpark.com` as the mailer is disabled and will not send out emails :)
-
-
 This project is incomplete and therefore errors could occur, although I like to think I've ironed the majority out :p.
 
 It is built with [Python][0] using the [Django Web Framework][1].
