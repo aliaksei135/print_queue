@@ -3,7 +3,7 @@ autocomplete==0.0.104
 click==6.7
 codegen==1.0
 decorator==4.0.10
-Django==1.10.3
+Django==1.11.23
 django-admin-bootstrapped==2.5.7
 django-ajax-selects==1.5.2
 django-appconf==1.0.2
