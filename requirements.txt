@@ -30,7 +30,7 @@ google-api-python-client==1.6.2
 httplib2==0.10.3
 image==1.5.5
 itsdangerous==0.24
-Jinja2==2.9.5
+Jinja2==2.11.3
 jsonfield==1.0.3
 lockfile==0.12.2
 MarkupSafe==0.23
