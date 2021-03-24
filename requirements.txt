@@ -41,7 +41,7 @@ Pillow==6.2.0
 pyasn1==0.2.2
 pyasn1-modules==0.0.8
 pytz==2016.10
-rsa==3.4.2
+rsa==4.1
 six==1.10.0
 sqlparse==0.2.2
 uritemplate==3.0.0
